@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
 
-    const handleLogOut = () => {};
+    const handleLogOut = () => {
+        logout()
+            .then(() => {})
+            .catch((error) => console.error(error));
+        toast.success("logout");
+    };
 
     const menuItems = (
         <>

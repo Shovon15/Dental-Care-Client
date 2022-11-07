@@ -5,6 +5,7 @@ import img from "../../../assets/images/login.jpg";
 import { useContext } from "react";
 // import toast from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
     const { login, setLoading, signInWithGoogle } = useContext(AuthContext);
@@ -53,9 +54,9 @@ const Login = () => {
                 // } else {
                 //     toast.error("Your email is not verified. Please verify your email address.");
                 // }
-                // toast.success("Successfully login");
+                toast.success("Successfully login");
 
-                navigate("/userprofile");
+                navigate("/");
             })
             .catch((error) => {
                 console.error(error);
@@ -79,7 +80,7 @@ const Login = () => {
                     <img className="w-3/4" src={img} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-10">
-                    <h1 className="text-5xl text-center font-bold text-orange-600">Login</h1>
+                    <h1 className="text-5xl text-center font-bold text-violet-800">Login</h1>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
