@@ -24,7 +24,7 @@ const SignUp = () => {
                 console.log(user);
                 handleUpdateUserProfile(name, photoURL);
                 setError("");
-                navigate("/userprofile");
+                navigate("/");
                 form.reset();
             })
             .catch((err) => {

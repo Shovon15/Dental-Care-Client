@@ -8,6 +8,7 @@ import {
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
+    updateProfile,
 } from "firebase/auth";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -52,7 +53,9 @@ const AuthProvider = ({ children }) => {
         };
     }, []);
 
-    const updateUserProfile = () => {};
+    const updateUserProfile = (profile) => {
+        return updateProfile(auth.currentUser, profile);
+    };
 
     const authInfo = {
         user,
