@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import img from "../../../assets/images/banner.jpg";
 import Services from "../../Services/Services";
 
 const Home = () => {
+    const services = useLoaderData();
+    // console.log(services);
     return (
         <div className="min-h-screen">
             <div className="relative m-5 md:m-10 ">
@@ -21,7 +23,15 @@ const Home = () => {
             </div>
             <div>
                 <h1 className="text-3xl text-center font-bold m-4">OUR SERVICES</h1>
-                <Services />
+                <Link to="/addService">
+                    <button className="btn btn-outline btn-primary bg-white m-3 px-7 ">Add Services</button>
+                </Link>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+                    {services.map((service) => (
+                        <Services key={service._id} service={service}></Services>
+                    ))}
+                </div>
+
                 <button className="btn btn-outline btn-primary bg-white m-3 px-10">SEE ALL</button>
             </div>
         </div>

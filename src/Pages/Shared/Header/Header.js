@@ -62,7 +62,7 @@ const Header = () => {
             <div className="navbar-end">
                 {user?.uid ? (
                     <div className="flex items-center mx-4">
-                        <Link to="/userprofile">
+                        <Link to="/">
                             <div className="tooltip tooltip-left" data-tip={user?.displayName}>
                                 {user?.photoURL ? (
                                     <img

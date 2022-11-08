@@ -29,7 +29,7 @@ const Login = () => {
                 //     // toast.error("Your email is not verified. Please verify your email address.");
                 // }
                 // toast.success("Successfully login");
-                navigate("/userprofile");
+                navigate("/");
                 form.reset();
             })
             .catch((err) => {
