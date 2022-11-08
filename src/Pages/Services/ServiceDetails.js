@@ -42,6 +42,35 @@ const ServiceDetails = () => {
                     total_view
                 </div>
             </div> */}
+            <div className=" my-5 lg:my-10">
+                {user?.uid ? (
+                    <>
+                        <div className=" flex space-x-3">
+                            <img src={user?.photoURL} alt="photoURL" className="w-20 h-20 rounded-full" />
+                            <p className="flex justify-center items-center font-bold">{user?.displayName}</p>
+                        </div>
+                        <div className="w-80">
+                            <form onSubmit={handleReview} className="card-body">
+                                <div className="form-control">
+                                    <textarea
+                                        type="text"
+                                        name="review"
+                                        placeholder="type your review"
+                                        className="input input-bordered h-20"
+                                        required
+                                    />
+                                </div>
+                                {/* <p className="text-red-500 py-0 text-md">{error}</p> */}
+                                <div className="form-control mt-6">
+                                    <input className="btn btn-primary" type="submit" value="review" />
+                                </div>
+                            </form>
+                        </div>
+                    </>
+                ) : (
+                    <></>
+                )}
+            </div>
         </div>
     );
 };
