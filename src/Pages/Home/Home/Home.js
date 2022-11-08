@@ -16,12 +16,12 @@ const Home = () => {
                     <h1>Dental Care</h1>
                     <h1>MR. John Joe</h1>
                     <h1 className="text-3xl">Doctor of Dental Surgery</h1>
-                    <Link to="/">
+                    <Link to="#services">
                         <button className="btn btn-outline btn-primary bg-white m-3 px-7">OUR SERVICES</button>
                     </Link>
                 </div>
             </div>
-            <div>
+            <div id="services">
                 <h1 className="text-3xl text-center font-bold m-4">OUR SERVICES</h1>
                 <Link to="/addService">
                     <button className="btn btn-outline btn-primary bg-white m-3 px-7 ">Add Services</button>
