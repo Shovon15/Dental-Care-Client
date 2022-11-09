@@ -13,12 +13,14 @@ const Home = () => {
                 <div>
                     <img src={img} alt="banner" className="w-full rounded-lg"></img>
                 </div>
-                <div className="absolute right-24  md:right-44 top-1/4 md:top-1/4 font-bold text-white text-2xl md:text-5xl">
-                    <h1>Dental Care</h1>
-                    <h1>MR. John Joe</h1>
-                    <h1 className="text-3xl">Doctor of Dental Surgery</h1>
+                <div className="absolute right-12  md:right-44 top-1/4 md:top-1/4 font-bold text-white text-base md:text-5xl">
+                    <h5 className="text-2xl hidden md:block">Dental Care</h5>
+                    <h1 className="py-1 md:py-4">MR. John Doe</h1>
+                    <h1 className="text-base md:text-3xl">Doctor of Dental Surgery</h1>
                     <Link to="/allServices">
-                        <button className="btn btn-outline btn-primary bg-white m-3 px-7">OUR SERVICES</button>
+                        <button className="btn btn-outline btn-primary bg-white md:m-3 px-3 md:px-7">
+                            OUR SERVICES
+                        </button>
                     </Link>
                 </div>
             </div>
@@ -37,7 +39,7 @@ const Home = () => {
                     <button className="btn btn-outline btn-primary bg-white m-3 px-10">SEE ALL Services</button>
                 </Link>
             </div>
-            <Locations />
+            {/* <Locations /> */}
         </div>
     );
 };

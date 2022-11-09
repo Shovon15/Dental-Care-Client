@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import img from "../../../assets/images/login.jpg";
 import { useContext } from "react";
@@ -11,6 +11,9 @@ const Login = () => {
     const { login, setLoading, signInWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -23,13 +26,8 @@ const Login = () => {
                 const user = result.user;
                 console.log(user.email);
                 setError("");
-                // if (user.emailVerified) {
-                //     navigate(from, { replace: true });
-                // } else {
-                //     // toast.error("Your email is not verified. Please verify your email address.");
-                // }
-                // toast.success("Successfully login");
-                navigate("/");
+                toast.success("Successfully login");
+                navigate(from, { replace: true });
                 form.reset();
             })
             .catch((err) => {
@@ -46,17 +44,9 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user.email);
-                // from.reset();
-                // navigate(from, { replace: true });
                 setError("");
-                // if (user.emailVerified) {
-                //     navigate(from, { replace: true });
-                // } else {
-                //     toast.error("Your email is not verified. Please verify your email address.");
-                // }
                 toast.success("Successfully login");
-
-                navigate("/");
+                navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.error(error);

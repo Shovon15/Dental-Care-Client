@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import img from "../../../assets/images/login.jpg";
 import { useContext } from "react";
@@ -9,6 +9,9 @@ const SignUp = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     const handleSignUP = (event) => {
         event.preventDefault();
@@ -24,7 +27,7 @@ const SignUp = () => {
                 console.log(user);
                 handleUpdateUserProfile(name, photoURL);
                 setError("");
-                navigate("/");
+                navigate(from, { replace: true });
                 form.reset();
             })
             .catch((err) => {

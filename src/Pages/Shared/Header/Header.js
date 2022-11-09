@@ -23,11 +23,23 @@ const Header = () => {
             <Link to="/blog" className=" btn btn-ghost font-bold">
                 Blogs
             </Link>
+            {user?.uid ? (
+                <></>
+            ) : (
+                <>
+                    <Link to="/login" className="btn btn-ghost md:mx-2 font-bold md:hidden">
+                        Log in
+                    </Link>
+                    <Link to="/signUp" className="btn btn-ghost font-bold md:hidden">
+                        Sign Up
+                    </Link>
+                </>
+            )}
         </>
     );
 
     return (
-        <div className="navbar bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-5">
+        <div className="navbar bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -76,13 +88,13 @@ const Header = () => {
                             </div>
                         </Link>
 
-                        <button onClick={handleLogOut} className="btn mx-3">
-                            <FaSignOutAlt className="mx-3 text-white w-5 h-5" />
+                        <button onClick={handleLogOut} className="btn btn-outline btn-primary bg-slate-400 m-2">
+                            <FaSignOutAlt className=" text-white w-4 h-4 md:w-5 md:h-5" />
                         </button>
                     </div>
                 ) : (
-                    <div className="mx-5">
-                        <Link to="/login" className="btn mx-2">
+                    <div className="md:mx-5 hidden md:block">
+                        <Link to="/login" className="btn  md:mx-2">
                             Log in
                         </Link>
                         <Link to="/signUp" className="btn">
