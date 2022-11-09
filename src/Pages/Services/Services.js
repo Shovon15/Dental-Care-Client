@@ -1,23 +1,30 @@
-import React from "react";
+// import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Services = ({ service }) => {
     // console.log(service);
-    const { _id, name, details, logo, title } = service;
-    // console.log(title);
+    let { _id, name, logo, title, price } = service;
+
+    if (title.length > 100) {
+        title = title.slice(0, 100) + "...";
+        console.log(title);
+    }
 
     return (
         <div className="m-5 md:m-10">
-            <div className="card w-96 border border-slate-400 shadow-xl">
+            <div className="card w-full border border-slate-400 shadow-xl">
                 <figure>
                     <img src={logo} alt="Shoes" />
                 </figure>
                 <div className="card-body  rounded-xl">
-                    <h2 className="card-title">{name}</h2>
+                    <h2 className="card-title font-bold">{name}</h2>
                     <p>{title}</p>
-                    <Link to={`/service/${_id}`}>
-                        <button className="btn btn-primary">See Details</button>
-                    </Link>
+                    <div className="flex">
+                        <p className="text-start my-auto text-indigo-800 font-bold text-2xl">{price} $</p>
+                        <Link to={`/service/${_id}`}>
+                            <button className="btn btn-outline btn-primary bg-white  px-10">See Details</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

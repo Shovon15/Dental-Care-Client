@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import img from "../../../assets/images/banner.jpg";
 import Services from "../../Services/Services";
+import Locations from "../Locations/Locations";
 
 const Home = () => {
     const services = useLoaderData();
@@ -16,7 +17,7 @@ const Home = () => {
                     <h1>Dental Care</h1>
                     <h1>MR. John Joe</h1>
                     <h1 className="text-3xl">Doctor of Dental Surgery</h1>
-                    <Link to="#services">
+                    <Link to="/allServices">
                         <button className="btn btn-outline btn-primary bg-white m-3 px-7">OUR SERVICES</button>
                     </Link>
                 </div>
@@ -32,8 +33,11 @@ const Home = () => {
                     ))}
                 </div>
 
-                <button className="btn btn-outline btn-primary bg-white m-3 px-10">SEE ALL</button>
+                <Link to="/allServices">
+                    <button className="btn btn-outline btn-primary bg-white m-3 px-10">SEE ALL Services</button>
+                </Link>
             </div>
+            <Locations />
         </div>
     );
 };
