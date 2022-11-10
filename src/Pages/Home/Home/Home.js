@@ -1,7 +1,9 @@
 import React from "react";
+import { FaPlus } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import img from "../../../assets/images/banner.jpg";
 import Services from "../../Services/Services";
+import DoctorLab from "../DoctorLab/DoctorLab";
 import DoctorSchedule from "../DoctorSchedule/DoctorSchedule";
 // import Locations from "../Locations/Locations";
 
@@ -28,7 +30,9 @@ const Home = () => {
             <div id="services">
                 <h1 className="text-3xl text-center font-bold m-4">OUR SERVICES</h1>
                 <Link to="/addService">
-                    <button className="btn btn-outline btn-primary bg-white m-3 px-7 ">Add Services</button>
+                    <button className="btn btn-outline btn-primary bg-white m-3 px-7 ">
+                        Add Services <FaPlus className="pl-2 w-6" />
+                    </button>
                 </Link>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
                     {services.map((service) => (
@@ -42,6 +46,7 @@ const Home = () => {
             </div>
             {/* <Locations /> */}
             <DoctorSchedule />
+            <DoctorLab />
         </div>
     );
 };

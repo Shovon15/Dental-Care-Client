@@ -9,6 +9,7 @@ import AllServices from "../../Pages/Services/AllServices/AllServices";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import AddReview from "../../Pages/Shared/Review/AddReview/AddReview";
 import MyReviews from "../../Pages/Shared/Review/MyReviews/MyReviews";
+import { FaSadCry } from "react-icons/fa";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -20,12 +21,12 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch("http://localhost:5000/services"),
+                loader: () => fetch("https://dental-service-server-app.vercel.app/services"),
             },
             {
                 path: "/allServices",
                 element: <AllServices></AllServices>,
-                loader: () => fetch("http://localhost:5000/allServices"),
+                loader: () => fetch("https://dental-service-server-app.vercel.app/allServices"),
             },
             {
                 path: "/blog",
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
             {
                 path: "/service/:id",
                 element: <ServiceDetails />,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://dental-service-server-app.vercel.app/services/${params.id}`),
             },
             {
                 path: "/addReview",
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
                         <AddReview />
                     </PrivateRoutes>
                 ),
-                // loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                // loader: ({ params }) => fetch(`https://dental-service-server-app.vercel.app/services/${params.id}`),
             },
             {
                 path: "/myReviews",
@@ -68,7 +69,18 @@ const router = createBrowserRouter([
                         <MyReviews />
                     </PrivateRoutes>
                 ),
-                // loader: ({ params }) => fetch(`http://localhost:5000/myReviews?email=${user?.email}`),
+                // loader: ({ params }) => fetch(`https://dental-service-server-app.vercel.app/myReviews?email=${user?.email}`),
+            },
+            {
+                path: "*",
+                element: (
+                    <div className="flex flex-col justify-center items-center my-5">
+                        <p className="text-xl font-bold">Page Not Found</p>
+                        <p>
+                            <FaSadCry className="m-3 w-10 h-10" />
+                        </p>
+                    </div>
+                ),
             },
         ],
     },

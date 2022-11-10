@@ -8,7 +8,7 @@ const MyReviews = () => {
     // console.log(user);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myReviews?email=${user?.email}`)
+        fetch(`https://dental-service-server-app.vercel.app/myReviews?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, [user?.email]);

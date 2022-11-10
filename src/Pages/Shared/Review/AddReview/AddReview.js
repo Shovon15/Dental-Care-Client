@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
-import Review from "../Review";
+// import Review from "../Review";
 
 const AddReview = ({ id, serviceName }) => {
     const { user, reviews, setReviews } = useContext(AuthContext);
@@ -34,7 +34,7 @@ const AddReview = ({ id, serviceName }) => {
             email,
         };
 
-        fetch("http://localhost:5000/reviews", {
+        fetch("https://dental-service-server-app.vercel.app/reviews", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

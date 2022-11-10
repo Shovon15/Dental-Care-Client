@@ -6,10 +6,11 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 const PrivateRoutes = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
+    console.log(location);
 
     if (loading) {
         // console.log('yes loading found');
-        return <div>Loading...</div>;
+        return <div className="text-xl text-center">Loading...</div>;
     }
 
     if (user && user.uid) {
