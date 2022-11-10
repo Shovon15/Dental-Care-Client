@@ -1,3 +1,21 @@
+Assignment 11 Programming Hero
+Name: Dental care website
+
+Live website Link:
+
+How i create a Dental care web application
+
+1. create react app
+2. react router dom library
+3. firebase login/Registration
+4. firebase hosting
+5. react icons
+6. tailwind CSS
+7. daisyUI
+8. react hot toast
+9. react context hook
+10. env.local
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
