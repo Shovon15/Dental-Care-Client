@@ -1,8 +1,8 @@
 import React from "react";
-import img01 from "../../../assets/images/lab-01.jpg";
-import img02 from "../../../assets/images/lab-02.jpg";
-import img03 from "../../../assets/images/lab-03.jpg";
-import img04 from "../../../assets/images/lab-04.jpg";
+import img01 from "../../../assets/images/lab-011.jpg";
+import img02 from "../../../assets/images/lab-022.jpg";
+import img03 from "../../../assets/images/lab-033.jpg";
+import img04 from "../../../assets/images/lab-044.jpg";
 
 const DoctorLab = () => {
     return (

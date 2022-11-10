@@ -54,9 +54,9 @@ const SignUp = () => {
     // ------------------------------------------
     return (
         <div className="hero w-full my-10">
-            <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
+            <div className="hero-content flex flex-col md:flex-row ">
                 <div className="text-center lg:text-left">
-                    <img className="w-3/4" src={img} alt="" />
+                    <img className="w-full md:w-3/4 " src={img} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl  border border-slate-400 py-20">
                     <h1 className="text-5xl text-center font-bold text-violet-800">Sign UP</h1>
