@@ -21,6 +21,15 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews`)
+            .then((res) => res.json())
+            .then((data) => setReviews(data));
+    }, []);
+    // console.log(reviews);
+
     const googleProvider = new GoogleAuthProvider();
 
     const createUser = (email, password) => {
@@ -43,7 +52,7 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log(currentUser);
+            // console.log(currentUser);
             setUser(currentUser);
             setLoading(false);
         });
@@ -65,6 +74,8 @@ const AuthProvider = ({ children }) => {
         logout,
         signInWithGoogle,
         updateUserProfile,
+        reviews,
+        setReviews,
     };
 
     return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;

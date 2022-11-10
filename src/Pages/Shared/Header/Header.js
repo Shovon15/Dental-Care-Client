@@ -24,7 +24,17 @@ const Header = () => {
                 Blogs
             </Link>
             {user?.uid ? (
-                <></>
+                <>
+                    <Link to="/addService" className=" btn btn-ghost font-bold">
+                        Add a Service
+                    </Link>
+                    <Link to="/" className=" btn btn-ghost font-bold">
+                        My Reviews
+                    </Link>
+                    <Link to="/" className=" btn btn-ghost font-bold">
+                        My Appointment
+                    </Link>
+                </>
             ) : (
                 <>
                     <Link to="/login" className="btn btn-ghost md:mx-2 font-bold md:hidden">

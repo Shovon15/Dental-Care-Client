@@ -1,7 +1,9 @@
 import React from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddServices = () => {
+    const navigate = useNavigate();
     const handleAddServices = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -33,6 +35,7 @@ const AddServices = () => {
                 if (data.acknowledged) {
                     toast.success("Order placed successfully");
                     event.target.reset();
+                    navigate("/allServices");
                 }
             })
             .catch((err) => console.error(err));

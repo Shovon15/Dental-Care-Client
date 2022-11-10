@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import img from "../../../assets/images/banner.jpg";
 import Services from "../../Services/Services";
-import Locations from "../Locations/Locations";
+import DoctorSchedule from "../DoctorSchedule/DoctorSchedule";
+// import Locations from "../Locations/Locations";
 
 const Home = () => {
     const services = useLoaderData();
@@ -40,6 +41,7 @@ const Home = () => {
                 </Link>
             </div>
             {/* <Locations /> */}
+            <DoctorSchedule />
         </div>
     );
 };
