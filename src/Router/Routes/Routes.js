@@ -8,6 +8,7 @@ import ServiceDetails from "../../Pages/Services/ServiceDetails";
 import AllServices from "../../Pages/Services/AllServices/AllServices";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import AddReview from "../../Pages/Shared/Review/AddReview/AddReview";
+import MyReviews from "../../Pages/Shared/Review/MyReviews/MyReviews";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -59,6 +60,15 @@ const router = createBrowserRouter([
                     </PrivateRoutes>
                 ),
                 // loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+            },
+            {
+                path: "/myReviews",
+                element: (
+                    <PrivateRoutes>
+                        <MyReviews />
+                    </PrivateRoutes>
+                ),
+                // loader: ({ params }) => fetch(`http://localhost:5000/myReviews?email=${user?.email}`),
             },
         ],
     },

@@ -55,7 +55,7 @@ const ServiceDetails = () => {
                 </div>
             ))} */}
             <Review />
-            <AddReview key={_id} id={_id} />
+            <AddReview key={_id} id={_id} serviceName={name} />
         </div>
     );
 };

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider/AuthProvider";
 import Review from "../Review";
 
-const AddReview = ({ id }) => {
+const AddReview = ({ id, serviceName }) => {
     const { user, reviews, setReviews } = useContext(AuthContext);
     const date = new Date();
 
@@ -25,7 +25,8 @@ const AddReview = ({ id }) => {
         const email = user?.email || "unregistered";
 
         const order = {
-            service: id,
+            serviceId: id,
+            serviceName: serviceName,
             name,
             userPhotoURL,
             text,
