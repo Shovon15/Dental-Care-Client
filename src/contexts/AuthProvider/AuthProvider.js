@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`https://dental-service-server-app.vercel.app/reviews`)
+        fetch(`http://localhost:5000/services/reviews`)
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);

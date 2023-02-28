@@ -34,7 +34,7 @@ const AddReview = ({ id, serviceName }) => {
             email,
         };
 
-        fetch("https://dental-service-server-app.vercel.app/reviews", {
+        fetch("http://localhost:5000/services/reviews", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

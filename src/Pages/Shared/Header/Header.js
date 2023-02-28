@@ -31,7 +31,7 @@ const Header = () => {
                     <Link to="/myReviews" className=" btn btn-ghost font-bold">
                         My Reviews
                     </Link>
-                    <Link to="/" className=" btn btn-ghost font-bold">
+                    <Link to="/myAppointment" className=" btn btn-ghost font-bold">
                         My Appointment
                     </Link>
                 </>

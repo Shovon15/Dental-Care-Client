@@ -10,6 +10,8 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import AddReview from "../../Pages/Shared/Review/AddReview/AddReview";
 import MyReviews from "../../Pages/Shared/Review/MyReviews/MyReviews";
 import { FaSadCry } from "react-icons/fa";
+import MyAppointment from "../../Pages/Shared/MyAppointment/MyAppointment";
+import AddAppointment from "../../Pages/Shared/MyAppointment/AddAppointment/AddAppointment";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -21,12 +23,12 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch("https://dental-service-server-app.vercel.app/services"),
+                loader: () => fetch("http://localhost:5000/services/services"),
             },
             {
                 path: "/allServices",
                 element: <AllServices></AllServices>,
-                loader: () => fetch("https://dental-service-server-app.vercel.app/allServices"),
+                loader: () => fetch("http://localhost:5000/services/allServices"),
             },
             {
                 path: "/blog",
@@ -51,7 +53,7 @@ const router = createBrowserRouter([
             {
                 path: "/service/:id",
                 element: <ServiceDetails />,
-                loader: ({ params }) => fetch(`https://dental-service-server-app.vercel.app/services/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/services/services/${params.id}`),
             },
             {
                 path: "/addReview",
@@ -60,7 +62,6 @@ const router = createBrowserRouter([
                         <AddReview />
                     </PrivateRoutes>
                 ),
-                // loader: ({ params }) => fetch(`https://dental-service-server-app.vercel.app/services/${params.id}`),
             },
             {
                 path: "/myReviews",
@@ -69,7 +70,22 @@ const router = createBrowserRouter([
                         <MyReviews />
                     </PrivateRoutes>
                 ),
-                // loader: ({ params }) => fetch(`https://dental-service-server-app.vercel.app/myReviews?email=${user?.email}`),
+            },
+            {
+                path: "/addAppointment",
+                element: (
+                    <PrivateRoutes>
+                        <AddAppointment />
+                    </PrivateRoutes>
+                ),
+            },
+            {
+                path: "/myAppointment",
+                element: (
+                    <PrivateRoutes>
+                        <MyAppointment />
+                    </PrivateRoutes>
+                ),
             },
             {
                 path: "*",

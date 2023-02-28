@@ -2,9 +2,10 @@ import React from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const AddServices = () => {
+const AddAppointment = () => {
     const navigate = useNavigate();
-    const handleAddServices = (event) => {
+
+    const handleAddAppointment = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -33,9 +34,9 @@ const AddServices = () => {
             .then((data) => {
                 console.log(data);
                 if (data.acknowledged) {
-                    toast.success("Order placed successfully");
+                    toast.success("appointment add successfully");
                     event.target.reset();
-                    navigate("/allServices");
+                    navigate("/myAppointment");
                 }
             })
             .catch((err) => console.error(err));
@@ -43,32 +44,15 @@ const AddServices = () => {
     return (
         <div className="hero w-2/3 hero-content mx-auto">
             <div className="card  w-full  shadow-2xl bg-base-100 py-10">
-                <h1 className="text-5xl text-center font-bold text-orange-600">Add Services</h1>
-                <form onSubmit={handleAddServices} className="card-body">
+                <h1 className="text-5xl text-center font-bold text-indigo-600">Add An Appointment</h1>
+                <form onSubmit={handleAddAppointment} className="card-body">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Service name</span>
                         </label>
                         <input type="text" name="name" placeholder="title" className="input input-bordered" required />
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Service Title</span>
-                        </label>
-                        <input type="text" name="title" placeholder="title" className="input input-bordered" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Service PhotoURL</span>
-                        </label>
-                        <input
-                            type="text"
-                            name="logo"
-                            placeholder="photoURL"
-                            className="input input-bordered"
-                            required
-                        />
-                    </div>
+
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Detail about Service</span>
@@ -81,21 +65,13 @@ const AddServices = () => {
                             required
                         />
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Service Price</span>
-                        </label>
-                        <input
-                            type="number"
-                            name="price"
-                            placeholder="Service price"
-                            className="input input-bordered"
-                            required
-                        />
-                    </div>
-                    {/* <p className="text-red-500 py-0 text-md">{error}</p> */}
+
                     <div className="form-control mt-6">
-                        <input className="btn btn-primary mx-auto px-24" type="submit" value="Add To Service List" />
+                        <input
+                            className="btn btn-primary mx-auto px-24"
+                            type="submit"
+                            value="Add To Appointment List"
+                        />
                     </div>
                 </form>
             </div>
@@ -103,4 +79,4 @@ const AddServices = () => {
     );
 };
 
-export default AddServices;
+export default AddAppointment;
